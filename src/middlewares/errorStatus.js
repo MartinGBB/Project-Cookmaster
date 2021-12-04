@@ -20,9 +20,15 @@ const UNAUTHORIZED = {
   message: 'Incorrect username or password',
 };
 
+const INVALID_TOKEN = {
+  status: StatusCodes.UNAUTHORIZED,
+  message: 'jwt malformed',
+};
+
 module.exports = {
   EMAIL_REGISTRED,
   INVALID_ENTRIES,
   INVALID_FIELDS,
   UNAUTHORIZED,
+  INVALID_TOKEN,
 };

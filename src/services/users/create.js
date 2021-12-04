@@ -1,4 +1,4 @@
-const userModel = require('../../models/documents/auth/users');
+const userModel = require('../../models/auth/users');
 const error = require('../../middlewares/errorStatus');
 // link: https://pt.stackoverflow.com/questions/1386/express%C3%A3o-regular-para-valida%C3%A7%C3%A3o-de-e-mail
 const regexEmail = /^[a-z0-9_.-]+@[a-z]+\.[a-z]{2,3}(?:\.[a-z]{2})?$/;

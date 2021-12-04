@@ -1,4 +1,4 @@
-const user = require('../../models/documents/auth/users');
+const user = require('../../models/auth/users');
 const error = require('../../middlewares/errorStatus');
 const authService = require('./auth');
 
@@ -9,7 +9,7 @@ const login = async (email, password) => {
   const [data] = findUser;
   if (!data || password !== data.password) return error.UNAUTHORIZED;
 
-  const { password: _password, ...users } = findUser;
+  const { password: _password, ...users } = data;
   const token = authService.getToken(users);
   return { status: 200, token };
 };
