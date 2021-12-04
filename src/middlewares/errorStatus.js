@@ -25,10 +25,16 @@ const INVALID_TOKEN = {
   message: 'jwt malformed',
 };
 
+const NOT_FOUND = {
+  status: StatusCodes.NOT_FOUND,
+  message: 'recipe not found',
+};
+
 module.exports = {
   EMAIL_REGISTRED,
   INVALID_ENTRIES,
   INVALID_FIELDS,
   UNAUTHORIZED,
   INVALID_TOKEN,
+  NOT_FOUND,
 };
