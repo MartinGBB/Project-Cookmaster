@@ -1,4 +1,4 @@
-const updateRecipe = require('../../services/recipes');
+const verifyRecipe = require('../../services/recipes');
 
 module.exports = async (req, res, next) => {
   try {
@@ -8,8 +8,8 @@ module.exports = async (req, res, next) => {
 
     const data = { name, ingredients, preparation, _id: id, userId: _id };
 
-    const recipeS = await updateRecipe.update(data);
-    const { status, message, recipe } = recipeS;
+    const updateRecipe = await verifyRecipe.update(data);
+    const { status, message, recipe } = updateRecipe;
 
     if (!recipe) return res.status(status).json({ message });
     return res.status(status).json(recipe);
