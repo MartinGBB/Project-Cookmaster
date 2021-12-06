@@ -12,8 +12,9 @@ const getToken = (data) => jwt.sign({ data }, API_SECRET, JWT_CONFIG);
 const verifyToken = (token) => {
   try {
     const decoded = jwt.verify(token, API_SECRET);
-    const { name } = decoded.data;
-    return name;
+    // const { name } = decoded.data;
+    const { data } = decoded;
+    return data;
   } catch (error) {
     return null;
   }

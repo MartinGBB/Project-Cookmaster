@@ -30,6 +30,11 @@ const NOT_FOUND = {
   message: 'recipe not found',
 };
 
+const MISSING_TOKEN = {
+  status: StatusCodes.UNAUTHORIZED,
+  message: 'missing auth token',
+};
+
 module.exports = {
   EMAIL_REGISTRED,
   INVALID_ENTRIES,
@@ -37,4 +42,5 @@ module.exports = {
   UNAUTHORIZED,
   INVALID_TOKEN,
   NOT_FOUND,
+  MISSING_TOKEN,
 };
