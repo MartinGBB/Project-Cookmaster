@@ -1,6 +1,7 @@
 # Boas vindas ao repositório do projeto Cookmaster!
-`Projeto feito na escola de programação Trybe.`
+Projeto feito na escola de programação Trybe.
 Neste projeto aprendi como criar uma API RESTful em arquitetura MSC, uso de tokens JWT, upload de arquivos com Multer.
+A proposta do projeto foi criar uma API de receitas para capaz de cadastrar usuários, iniciar com login, ademas de cadastrar, atualizar, deletar e listar receitas, ademas de buscar por receita individual.
 
 ## Tecnologias utilizadas no projeto
 - Nodejs
@@ -8,14 +9,6 @@ Neste projeto aprendi como criar uma API RESTful em arquitetura MSC, uso de toke
 - MongoDB
 - Biblioteca JWT
 - Biblioteca Multer
-
-
-
-
-
-
-## Para iniciar o projeto sua maquina deve ter preinstalado as segintes técnologias
-
 
 ## Instrucciones para iniciar o projeto
 
@@ -48,7 +41,7 @@ Neste projeto aprendi como criar uma API RESTful em arquitetura MSC, uso de toke
 
 ## Endpoint para o cadastro de usuários
 
-###  Rota POST`/users`.
+###  Rota POST `/users`.
 
 - O endpoint recebe os campos email, senha, nome e role.
 
@@ -98,7 +91,7 @@ Neste projeto aprendi como criar uma API RESTful em arquitetura MSC, uso de toke
 
 ## Endpoint para o login de usuários
 
-### Rota POST`/login`.
+### Rota POST `/login`.
 
 - A rota deve receber os campos email e senha.
 
@@ -116,19 +109,19 @@ Neste projeto aprendi como criar uma API RESTful em arquitetura MSC, uso de toke
 
 - Caso haja falha na validação a requisição será respondida com o status 401 e uma mensagem de erro como o exemplo abaixo:
 
-  ```json
+    ```json
     {
       "message": "All fields must be filled"
     }
-  ```
+    ```
 
 - Se o login tiver o email ou senha inválido o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
-  ```json
+    ```json
     {
       "message": "Incorrect username or password"
     }
-  ```
+    ```
 
 - Se foi feito login com sucesso o resultado retornado deverá ser conforme exibido abaixo, com um status http `200`:
 
@@ -155,7 +148,6 @@ Neste projeto aprendi como criar uma API RESTful em arquitetura MSC, uso de toke
       "preparation": "string"
     }
   ```
-
 - O campo ID do autor, e preenchido automaticamente com o id do usuário logado, ele é extraído do token JWT.
 
 
@@ -166,7 +158,6 @@ Neste projeto aprendi como criar uma API RESTful em arquitetura MSC, uso de toke
       "message": "Invalid entries. Try again."
     }
   ```
-
 - Se a receita não tiver o token válido o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
   ```json
@@ -174,7 +165,6 @@ Neste projeto aprendi como criar uma API RESTful em arquitetura MSC, uso de toke
       "message": "jwt malformed"
     }
   ```
-
 - Caso o email já esteja em uso a requisição será respondida com o status 409 e uma mensagem de erro como o exemplo abaixo:
 
   ```json
@@ -182,7 +172,6 @@ Neste projeto aprendi como criar uma API RESTful em arquitetura MSC, uso de toke
       "message": "Email already registered"
     }
   ```
-
 - O resultado retornado para cadastrar a receita com sucesso deverá ser conforme exibido abaixo, com um status http `201`:
 
   ```json
@@ -195,7 +184,6 @@ Neste projeto aprendi como criar uma API RESTful em arquitetura MSC, uso de toke
     }
   }
   ```
-
 ## Endpoint para a listagem de receitas
 
 ### Rota GET `/recipes`.
@@ -222,7 +210,6 @@ Neste projeto aprendi como criar uma API RESTful em arquitetura MSC, uso de toke
     },
   ]
   ```
-
 - Caso a receita não exista a requisição será respondida com o status 404 e uma mensagem de erro como o exemplo abaixo:
 
   ```json
@@ -230,7 +217,6 @@ Neste projeto aprendi como criar uma API RESTful em arquitetura MSC, uso de toke
     "message": "recipe not found"
   }
   ```
-
 ## 5 - Endpoint para visualizar uma receita específica
 
 ### Rota GET `/recipes/:id`.
@@ -248,7 +234,6 @@ O resultado retornado para listar uma receita com sucesso deverá ser conforme e
     "userId": "string"
   }
   ```
-
 O resultado retornado para listar uma receita que não existe deverá ser conforme exibido abaixo, com um status http `404`:
 
   ```json
@@ -280,7 +265,6 @@ Tem um arquivo `seed.js` na raiz do projeto com uma query do Mongo DB capaz de i
     "preparation": "string"
   }
   ```
-
 - O resultado retornado para editar receita sem autenticação deverá ser conforme exibido abaixo, com um status http `401`:
 
   ```json
@@ -288,7 +272,6 @@ Tem um arquivo `seed.js` na raiz do projeto com uma query do Mongo DB capaz de i
     "message": "missing auth token"
   }
   ```
-
 - O resultado retornado para editar receita com token inválido deverá ser conforme exibido abaixo, com um status http `401`:
 
   ```json
@@ -296,7 +279,6 @@ Tem um arquivo `seed.js` na raiz do projeto com uma query do Mongo DB capaz de i
     "message": "jwt malformed"
   }
   ```
-
 - O resultado retornado para editar uma receita com sucesso deverá ser conforme exibido abaixo, com um status http `200`:
 
   ``` json
@@ -308,9 +290,7 @@ Tem um arquivo `seed.js` na raiz do projeto com uma query do Mongo DB capaz de i
     "userId": "string"
   }
   ```
-
-
-## 8 - Endpoint para a exclusão de uma receita
+## Endpoint para a exclusão de uma receita
 
 ### Rota DELETE `/recipes/:id`.
 
@@ -325,7 +305,6 @@ Tem um arquivo `seed.js` na raiz do projeto com uma query do Mongo DB capaz de i
     "message": "missing auth token"
   }
   ```
-
 - Caso o token não seja válido a requisição será respondida com o status 401 e uma mensagem de erro como o exemplo abaixo:
 
   ``` json
@@ -333,7 +312,6 @@ Tem um arquivo `seed.js` na raiz do projeto com uma query do Mongo DB capaz de i
     "message": "jwt malformed"
   }
   ```
-
 - Caso a receita não exista a requisição será respondida com o status 404 e uma mensagem de erro como o exemplo abaixo:
 
   ``` json
@@ -341,7 +319,6 @@ Tem um arquivo `seed.js` na raiz do projeto com uma query do Mongo DB capaz de i
     "message": "recipe not found"
   }
   ```
-
 - O resultado retornado para excluir uma receita com sucesso deverá ser conforme exibido abaixo, com um status http `204`:
 
   ``` json
@@ -349,8 +326,7 @@ Tem um arquivo `seed.js` na raiz do projeto com uma query do Mongo DB capaz de i
     "message": "you can only delete your recipes"
   }
   ```
-
-## 9 - Endpoint para a adição de uma imagem a uma receita
+## Endpoint para a adição de uma imagem a uma receita
 
 ### Rota PUT `/recipes/:id/image/`.
 
@@ -380,7 +356,6 @@ Tem um arquivo `seed.js` na raiz do projeto com uma query do Mongo DB capaz de i
     "image": "string"
   }
   ```
-
 - O resultado retornado para adicionar uma foto na receita com sucesso deverá ser conforme exibido abaixo, com um status http `401`:
 
   ``` json
@@ -388,7 +363,6 @@ Tem um arquivo `seed.js` na raiz do projeto com uma query do Mongo DB capaz de i
     "message": "missing auth token"
   }
   ```
-
 - O resultado retornado para adicionar uma foto na receita com sucesso deverá ser conforme exibido abaixo, com um status http `200`:
 
   ``` json
