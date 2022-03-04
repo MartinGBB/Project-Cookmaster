@@ -376,3 +376,10 @@ Tem um arquivo `seed.js` na raiz do projeto com uma query do Mongo DB capaz de i
 
 - O resultado retornado deverá ser do tipo imagem, com um status http `200`:
 
+## Contato
+
+### Martin Brazón
+Linkedin: https://www.linkedin.com/in/martinbrazon/ <br/>
+Github: https://github.com/MartinGBB/ToDoList <br/>
+Email: escorpmartin97@gmail.com
+
